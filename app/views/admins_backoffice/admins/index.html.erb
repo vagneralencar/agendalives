@@ -1,0 +1,29 @@
+<h1 class="h3 mb-4 text-gray-800">Administradores</h1>
+<p>Find me in app/views/admins_backoffice/admins/index.html.erb</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Email</th>
+      <th scope="col">ações</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @admins.each do |admin| %>
+    <tr>
+      <th scope="row"><%= admin.id %></th>
+      <td><%= admin.email%></td>
+      <td>
+      <%= link_to edit_admins_backoffice_admin_path(admin), class:"btn btn-warning btn-circle btn-sm" do %>
+        <i class="fas fa-edit"></i>
+      <% end %>
+
+      <a href="#" class="btn btn-danger btn-circle btn-sm">
+        <i class="fas fa-trash"></i>
+      </a>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

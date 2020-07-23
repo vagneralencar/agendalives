@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :admins_backoffice do
+    resources :admins, only: [:index, :edit, :update]
+    get 'home/index'
+  end
   devise_for :users
   devise_for :admins
   namespace :site do
@@ -6,9 +10,6 @@ Rails.application.routes.draw do
     get 'inicio', to: 'home#index'
   end
   namespace :users_backoffice do
-    get 'home/index'
-  end
-  namespace :admins_backoffice do
     get 'home/index'
   end
   

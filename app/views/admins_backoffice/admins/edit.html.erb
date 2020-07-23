@@ -1,0 +1,33 @@
+<h1 class="h3 mb-4 text-gray-800">Editando Administrador</h1>
+<%= @admin.inspect %>
+<% if @admin.errors.any? %>
+
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <ul>
+  <%@admin.errors.full_messages.each do |message|%>
+  <li> <%= message %> </li>
+  <% end %>
+  </ul>
+</div>
+<% end %>
+<%= form_with(model: [ :admins_backoffice, @admin ], local: true ) do |form| %>
+  <div class="form-group">
+  <%=form.label :email %>
+  <%= form.text_field :email, class:"form-control", placeholder:"Enter email"%>
+  </div>
+  
+  <div class="form-group">
+  <%=form.label :password %>
+  <%= form.text_field :password, class:"form-control", placeholder:"Enter password"%>
+  </div>
+
+    <div class="form-group">
+      <%=form.label :password_confirmation %>
+      <%= form.text_field :password_confirmation, class:"form-control", placeholder:"Enter password confirmation"%>
+  </div>
+  <button type="submit" class="btn btn-primary">Salvar</button>
+  <% end %>

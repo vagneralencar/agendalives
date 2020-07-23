@@ -83,7 +83,8 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Configurações:</h6>
-            <a class="collapse-item" href="utilities-color.html">Administradores</a>
+            <%= link_to 'Administradores', admins_backoffice_admins_path, class:"collapse-item" %>
+            
             <a class="collapse-item" href="utilities-border.html">Borders</a>
             <a class="collapse-item" href="utilities-animation.html">Animations</a>
             <a class="collapse-item" href="utilities-other.html">Other</a>
@@ -297,7 +298,6 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Administradores</h1>
 
             <%= yield %>
 
