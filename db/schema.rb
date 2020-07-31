@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_22_141438) do
+ActiveRecord::Schema.define(version: 2020_07_31_032859) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,6 +22,47 @@ ActiveRecord::Schema.define(version: 2020_07_22_141438) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "artist_lives", force: :cascade do |t|
+    t.integer "live_id"
+    t.integer "artist_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artist_id"], name: "index_artist_lives_on_artist_id"
+    t.index ["live_id"], name: "index_artist_lives_on_live_id"
+  end
+
+  create_table "artists", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "image"
+    t.string "facebook"
+    t.string "instagram"
+    t.string "youtube"
+    t.integer "genre_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["genre_id"], name: "index_artists_on_genre_id"
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "lives", force: :cascade do |t|
+    t.text "description"
+    t.string "image"
+    t.string "youtube"
+    t.string "instagram"
+    t.string "facebook"
+    t.integer "genre_id"
+    t.boolean "published", default: false
+    t.boolean "highlight", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["genre_id"], name: "index_lives_on_genre_id"
   end
 
   create_table "users", force: :cascade do |t|

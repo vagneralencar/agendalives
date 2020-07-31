@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyText
+  image: MyString
+  youtube: MyString
+  instagram: MyString
+  facebook: MyString
+  genre: one
+  published: false
+  highlight: false
+
+two:
+  description: MyText
+  image: MyString
+  youtube: MyString
+  instagram: MyString
+  facebook: MyString
+  genre: two
+  published: false
+  highlight: false
