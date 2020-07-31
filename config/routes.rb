@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   namespace :admins_backoffice do
     get 'home/index'
     resources :admins
+    resources :genres
+    resources :artists
   end
   devise_for :users
   devise_for :admins

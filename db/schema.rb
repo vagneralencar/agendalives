@@ -53,6 +53,8 @@ ActiveRecord::Schema.define(version: 2020_07_31_032859) do
 
   create_table "lives", force: :cascade do |t|
     t.text "description"
+    t.datetime "data"
+    t.time "hora"
     t.string "image"
     t.string "youtube"
     t.string "instagram"

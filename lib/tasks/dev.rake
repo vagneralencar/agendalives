@@ -1,6 +1,7 @@
 namespace :dev do
 
   DEFAULT_PASSWORD = 123456
+  DEFAULT_FILES_PATH = File.join(Rails.root, 'lib', 'tmp')
 
   desc "Configura o ambiente de desenvolvimento"
   task setup: :environment do
@@ -11,6 +12,8 @@ namespace :dev do
       show_spinner("Cadastrando o administrador padrão...") { %x(rails dev:add_default_admin) }
       show_spinner("Cadastrando o administrador extras...") { %x(rails dev:add_default_extra_admin) }
       show_spinner("Cadastrando o usuario padrão...") { %x(rails dev:add_default_user) }
+      show_spinner("Cadastrando genereos...") { %x(rails dev:add_genres) }
+      show_spinner("Cadastrando artistas...") { %x(rails dev:add_artists) }      
     else
       puts "Você não está em ambiente de desenvolvimento!"
     end
@@ -45,6 +48,32 @@ namespace :dev do
       password_confirmation: DEFAULT_PASSWORD
     )
   end
+
+  desc "Adiciona generos"
+  task add_genres: :environment do
+    file_name = 'genres.txt'
+    file_path =  File.join(DEFAULT_FILES_PATH, file_name)
+
+    File.open(file_path, 'r').each do |line|
+      Genre.create!(description: line.strip)
+    end
+  end
+
+  desc "Adiciona o Artistas"
+  task add_artists: :environment do
+    10.times do |i|
+    Artist.create!(
+      name: Faker::Name.name,
+      image: 'Link imagem',
+      facebook: 'Link facebook',
+      instagram: 'Link instagram',
+      youtube: 'Link youtube',
+      genre_id: Genre.all.sample
+    )
+    end
+  end
+
+  private 
 
   def show_spinner(msg_start, msg_end = "Concluído!")
     spinner = TTY::Spinner.new("[:spinner] #{msg_start}")

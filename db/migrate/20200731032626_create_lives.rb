@@ -2,6 +2,8 @@ class CreateLives < ActiveRecord::Migration[5.2]
   def change
     create_table :lives do |t|
       t.text :description
+      t.datetime :data
+      t.time :hora
       t.string :image
       t.string :youtube
       t.string :instagram
