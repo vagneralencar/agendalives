@@ -61,17 +61,19 @@ namespace :dev do
 
   desc "Adiciona o Artistas"
   task add_artists: :environment do
-    10.times do |i|
-    Artist.create!(
+    Genre.all.each do |genre| 
+      rand(2..23).times do |i|
+      Artist.create!(
       name: Faker::Name.name,
       image: 'Link imagem',
       facebook: 'Link facebook',
       instagram: 'Link instagram',
       youtube: 'Link youtube',
-      genre_id: Genre.all.sample
+      genre: genre
     )
-    end
+    end    
   end
+end
 
   private 
 
