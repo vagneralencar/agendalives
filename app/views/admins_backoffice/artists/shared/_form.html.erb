@@ -15,33 +15,33 @@
 <% end %>
 <%= form_with(model: [ :admins_backoffice, @artist ], local: true ) do |form| %>
   <div class="form-group">
-  <%=form.label :name %>
-  <%= form.text_field :name, class:"form-control", placeholder:"Enter Name"%>
+    <%=form.label :name %>
+    <%= form.text_field :name, class:"form-control", placeholder:"Enter Name"%>
   </div>
   
   <div class="form-group">
-  <%=form.label :image %>
-  <%= form.text_field :image, class:"form-control", placeholder:"Enter Image"%>
+    <%=form.label :image %>
+    <%= form.text_field :image, class:"form-control", placeholder:"Enter Image"%>
   </div>
 
   <div class="form-group">
-  <%=form.label :facebook %>
-  <%= form.text_field :facebook, class:"form-control", placeholder:"Enter Facebook"%>
+    <%=form.label :facebook %>
+    <%= form.text_field :facebook, class:"form-control", placeholder:"Enter Facebook"%>
   </div>
 
   <div class="form-group">
-  <%=form.label :instagram %>
-  <%= form.text_field :instagram, class:"form-control", placeholder:"Enter Instagram"%>
+    <%=form.label :instagram %>
+    <%= form.text_field :instagram, class:"form-control", placeholder:"Enter Instagram"%>
   </div>
 
   <div class="form-group">
-  <%=form.label :youtube %>
-  <%= form.text_field :youtube, class:"form-control", placeholder:"Enter youtube"%>
+    <%=form.label :youtube %>
+    <%= form.text_field :youtube, class:"form-control", placeholder:"Enter youtube"%>
   </div>
 
   <div class="form-group">
-  <%=form.label :genre_id %>
-  <%= form.text_field :genre_id, class:"form-control", placeholder:"Enter Genero"%>
+    <%=form.label :genre_id %>
+    <%= form.collection_select(:genre_id, @genres, :id, :description, {}, {class:"form-control"}) %>
   </div>
 
   <button type="submit" class="btn btn-primary">Salvar</button>

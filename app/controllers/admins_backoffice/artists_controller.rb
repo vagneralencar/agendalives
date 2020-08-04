@@ -1,8 +1,9 @@
 class AdminsBackoffice::ArtistsController < AdminsBackofficeController
   
     before_action :set_artist, only: [:edit, :update, :destroy]
+    before_action :get_genres, only: [:new, :edit]
     def index
-      @artists = Artist.all.page(params[:page])
+      @artists = Artist.includes(:genre).page(params[:page])
     end
   
     def new
@@ -51,4 +52,7 @@ class AdminsBackoffice::ArtistsController < AdminsBackofficeController
       @artist = Artist.find(params[:id])    
     end
 
+    def get_genres
+      @genres = Genre.all.order(:description)
+    end
   end

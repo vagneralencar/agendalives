@@ -62,7 +62,7 @@ namespace :dev do
   desc "Adiciona o Artistas"
   task add_artists: :environment do
     Genre.all.each do |genre| 
-      rand(2..23).times do |i|
+      rand(2..5).times do |i|
       Artist.create!(
       name: Faker::Name.name,
       image: 'Link imagem',
