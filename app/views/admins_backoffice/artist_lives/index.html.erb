@@ -1,0 +1,48 @@
+<h1 class="h3 mb-4 text-gray-800">Artistas</h1>
+<p>Find me in app/views/admins_backoffice/admins/index.html.erb</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nome</th>
+      <th scope="col">image</th>
+      <th scope="col">facebook</th>
+      <th scope="col">instagram</th>
+      <th scope="col">youtube</th>
+      <th scope="col">Genero ID</th>
+      <th scope="col">
+      <%= link_to  new_admins_backoffice_artist_path, class:"btn btn-success btn-circle btn-sm" do %>
+        <i class="fas fa-plus"></i>
+      <% end %>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @artists.each do |artist| %>
+    <tr>
+      <th scope="row"><%= artist.id %></th>
+      <td><%= artist.name%></td>
+      <td><%= artist.image%></td>
+      <td><%= artist.facebook%></td>
+      <td><%= artist.instagram%></td>
+      <td><%= artist.youtube%></td>
+      <td><%= artist.genre_id%></td>
+      <td>
+      <%= link_to edit_admins_backoffice_artist_path(artist), class:"btn btn-warning btn-circle btn-sm" do %>
+        <i class="fas fa-edit"></i>
+      <% end %>
+
+      <%= link_to admins_backoffice_artist_path(artist), method: :delete, class:"btn btn-danger btn-circle btn-sm", data: {confirm: "Deseja realmente apagar esse Artista?"} do %>
+        <i class="fas fa-trash"></i>
+      <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="text-center">
+  <%= paginate @artists %>
+</div>
+
+

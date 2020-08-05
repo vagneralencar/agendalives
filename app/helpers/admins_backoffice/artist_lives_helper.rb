@@ -1,0 +1,2 @@
+module AdminsBackoffice::ArtistLivesHelper
+end
