@@ -1,0 +1,10 @@
+<div class="nested-fields">
+  <div class="field">
+    <%= f.label :genre_id %><br>
+    <%= f.collection_select(:genre_id, @genres, :id, :description, {}, {class:"form-control"}) %>
+ </div>
+
+ 
+</div>
+
+ 

@@ -4,7 +4,9 @@ class AdminsBackoffice::ArtistLivesController < AdminsBackofficeController
     before_action :get_genres, only: [:new, :edit]
 
     def index
-      @artists_lives = ArtistLive.includes(:genre).page(params[:page])
+      @artists_lives = ArtistLive.includes(:genre, :artist).page(params[:page])
+      @genres = Genre.all
+      @artists = Artist.all
     end
   
     def new
@@ -24,7 +26,7 @@ class AdminsBackoffice::ArtistLivesController < AdminsBackofficeController
     end
   
     def update
-      if @artist.update(params_artist)
+      if @artist_live.update(params_artist_live)
         redirect_to admins_backoffice_artists_path, notice: "Artista atualizado com sucesso!"
       else
         render :edit
@@ -32,7 +34,7 @@ class AdminsBackoffice::ArtistLivesController < AdminsBackofficeController
     end
   
     def destroy
-      if @artist.destroy
+      if @artist_live.destroy
         redirect_to admins_backoffice_artists_path, notice: "Artista excluido com sucesso!"
       else
         render :index
@@ -45,12 +47,12 @@ class AdminsBackoffice::ArtistLivesController < AdminsBackofficeController
   
     private 
     
-    def params_artist
-      params.require(:artist).permit(:name, :image, :facebook, :instagram, :youtube, :genre_id)
+    def params_artist_live
+      params.require(:artist_live).permit(:artist_id, :genre_id)
     end
   
-    def set_artist
-      @artist = Artist.find(params[:id])    
+    def set_artist_live
+      @artist = ArtistLive.find(params[:id])    
     end
 
     def get_genres

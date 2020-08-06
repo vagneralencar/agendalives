@@ -1,4 +1,4 @@
 class ArtistLive < ApplicationRecord
-  belongs_to :live
+  belongs_to :livestream
   belongs_to :artist
 end

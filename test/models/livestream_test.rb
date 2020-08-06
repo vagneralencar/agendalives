@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class LiveTest < ActiveSupport::TestCase
+class LivestreamTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

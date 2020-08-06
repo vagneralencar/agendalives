@@ -2,20 +2,24 @@
 
 one:
   description: MyText
+  data: 2020-08-06 11:27:24
+  hora: 2020-08-06 11:27:24
   image: MyString
   youtube: MyString
   instagram: MyString
   facebook: MyString
-  genre: one
   published: false
   highlight: false
+  genre: one
 
 two:
   description: MyText
+  data: 2020-08-06 11:27:24
+  hora: 2020-08-06 11:27:24
   image: MyString
   youtube: MyString
   instagram: MyString
   facebook: MyString
-  genre: two
   published: false
   highlight: false
+  genre: two
