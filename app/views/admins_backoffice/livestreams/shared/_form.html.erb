@@ -1,8 +1,8 @@
 <h1 class="h3 mb-4 text-gray-800"><%= "#{action_message} Live" %></h1>
-<%= @livestream.inspect %>
+
 <% if @livestream.errors.any? %>
 
-<div class="alert alert-warning alert-dismissible fade show" role="alert">
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
@@ -57,15 +57,19 @@
     <%= form.collection_select(:genre_id, @genres, :id, :description, {}, {class:"form-control"}) %>
   </div>
 </div>
+  <h3 class="h3 mb-4 text-gray-800">Artistas Live</h3>
+    <div id='live_artists'>
 
-  <div id='artist_lives'>
-    <%= form.fields_for :artist_lives do |artist_live| %>
-      <%= render partial: "artist_live_fields", locals: { f: artist_live } %>
-    <% end %>
+      <%= form.fields_for :live_artists do |live_artist| %> 
+        <%= render "live_artist_fields", :f => live_artist %>
+      <% end %>
 
-    <%= link_to_add_association('[Adicionar Resposta]', form, :artist_lives) %>
-  </div>
+      <div class='links'>
+        <%= link_to_add_association('[Adicionar Artista]', form, :live_artists) %> <br>
+      </div>
 
+    </div>
+  <br>
   <button type="submit" class="btn btn-primary">Salvar</button>
   <% end %>
 

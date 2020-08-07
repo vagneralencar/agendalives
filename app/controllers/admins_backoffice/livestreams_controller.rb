@@ -1,7 +1,8 @@
 class AdminsBackoffice::LivestreamsController < AdminsBackofficeController
 
-  before_action :set_livestream, only: [:edit, :update, :destroy]
-    before_action :get_genres, only: [:new, :edit]
+    before_action :set_livestream, only: [:edit, :update, :destroy]
+    before_action :get_genres, only: [:new, :edit, :create, :update]
+    before_action :get_artists, only: [:new, :edit, :create, :update]
 
     def index
       @livestreams = Livestream.includes(:genre).page(params[:page])
@@ -9,7 +10,7 @@ class AdminsBackoffice::LivestreamsController < AdminsBackofficeController
   
     def new
       @livestream = Livestream.new
-      @genres = Genre.all.order(:description)
+      @artists = Artist.all.order(:name)
     end
   
     def create
@@ -43,15 +44,11 @@ class AdminsBackoffice::LivestreamsController < AdminsBackofficeController
     end
  
   
-    def get_artist
-      @artists = Artist.all.order(:name)
-    end
-    
     private 
     
     def params_livestream
       params.require(:livestream).permit(:description, :data, :hora, :image, :youtube, :instagram, :facebook, :genre_id,
-                                  artist_lives_attributes: [:id, :livestream_id, :artist_id, :_destroy ])
+                                  live_artists_attributes: [:id, :livestream_id, :artist_id, :_destroy ])
     end
   
     def set_livestream
@@ -62,4 +59,8 @@ class AdminsBackoffice::LivestreamsController < AdminsBackofficeController
       @genres = Genre.all.order(:description)
     end
     
+    def get_artists
+      @artists = Artist.all.order(:name)
+    end
+
 end

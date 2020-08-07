@@ -10,7 +10,7 @@
       <th scope="col">facebook</th>
       <th scope="col">instagram</th>
       <th scope="col">youtube</th>
-      <th scope="col">Genero ID</th>
+      <th scope="col">Genero</th>
       <th scope="col">
       <%= link_to  new_admins_backoffice_artist_path, class:"btn btn-success btn-circle btn-sm" do %>
         <i class="fas fa-plus"></i>
@@ -27,7 +27,7 @@
       <td><%= artist.facebook%></td>
       <td><%= artist.instagram%></td>
       <td><%= artist.youtube%></td>
-      <td><%= artist.genre_id%></td>
+      <td><%= artist.genre.description%></td>
       <td>
       <%= link_to edit_admins_backoffice_artist_path(artist), class:"btn btn-warning btn-circle btn-sm" do %>
         <i class="fas fa-edit"></i>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_06_152724) do
+ActiveRecord::Schema.define(version: 2020_08_06_174606) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,15 +22,6 @@ ActiveRecord::Schema.define(version: 2020_08_06_152724) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
-  end
-
-  create_table "artist_lives", force: :cascade do |t|
-    t.integer "livestream_id"
-    t.integer "artist_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["artist_id"], name: "index_artist_lives_on_artist_id"
-    t.index ["livestream_id"], name: "index_artist_lives_on_livestream_id"
   end
 
   create_table "artists", force: :cascade do |t|
@@ -49,6 +40,15 @@ ActiveRecord::Schema.define(version: 2020_08_06_152724) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "live_artists", force: :cascade do |t|
+    t.integer "artist_id"
+    t.integer "livestream_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artist_id"], name: "index_live_artists_on_artist_id"
+    t.index ["livestream_id"], name: "index_live_artists_on_livestream_id"
   end
 
   create_table "livestreams", force: :cascade do |t|

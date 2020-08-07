@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :genres
     resources :artists
     resources :livestreams
-    resources :artist_lives
+    resources :live_artists
   end
   devise_for :users
   devise_for :admins

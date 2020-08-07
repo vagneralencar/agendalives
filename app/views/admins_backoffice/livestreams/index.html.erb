@@ -11,7 +11,7 @@
       <th scope="col">Youtube</th>
       <th scope="col">Instagram</th>
       <th scope="col">Facebook</th>
-      <th scope="col">Genero ID</th>
+      <th scope="col">Genero</th>
       <th scope="col">
       <%= link_to  new_admins_backoffice_livestream_path, class:"btn btn-success btn-circle btn-sm" do %>
         <i class="fas fa-plus"></i>
@@ -29,7 +29,7 @@
       <td><%= livestream.youtube%></td>
       <td><%= livestream.instagram%></td>
       <td><%= livestream.facebook%></td>
-      <td><%= livestream.genre_id%></td>
+      <td><%= livestream.genre.description%></td>
       <td>
       <%= link_to edit_admins_backoffice_livestream_path(livestream), class:"btn btn-warning btn-circle btn-sm" do %>
         <i class="fas fa-edit"></i>
