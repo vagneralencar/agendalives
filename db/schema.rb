@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(version: 2020_08_06_174606) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "artist_lives", force: :cascade do |t|
+    t.integer "livestream_id"
+    t.integer "artist_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artist_id"], name: "index_artist_lives_on_artist_id"
+    t.index ["livestream_id"], name: "index_artist_lives_on_livestream_id"
+  end
+
   create_table "artists", force: :cascade do |t|
     t.string "name", null: false
     t.string "image"
