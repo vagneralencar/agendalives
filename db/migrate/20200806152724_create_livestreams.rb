@@ -1,6 +1,7 @@
 class CreateLivestreams < ActiveRecord::Migration[5.2]
   def change
     create_table :livestreams do |t|
+      t.string :title
       t.text :description
       t.datetime :data
       t.time :hora

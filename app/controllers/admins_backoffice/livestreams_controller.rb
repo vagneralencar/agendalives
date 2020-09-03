@@ -47,7 +47,7 @@ class AdminsBackoffice::LivestreamsController < AdminsBackofficeController
     private 
     
     def params_livestream
-      params.require(:livestream).permit(:description, :data, :hora, :image, :youtube, :instagram, :facebook, :genre_id,
+      params.require(:livestream).permit(:title, :description, :data, :hora, :image, :youtube, :instagram, :facebook, :genre_id,
                                   live_artists_attributes: [:id, :livestream_id, :artist_id, :_destroy ])
     end
   

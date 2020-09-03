@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 2020_08_06_174606) do
   end
 
   create_table "livestreams", force: :cascade do |t|
+    t.string "title"
     t.text "description"
     t.datetime "data"
     t.time "hora"

@@ -5,12 +5,10 @@
   <thead>
     <tr>
       <th scope="col">#</th>
+      <th scope="col">Título</th>  
       <th scope="col">Description</th>
       <th scope="col">Data</th>
       <th scope="col">hora</th>
-      <th scope="col">Youtube</th>
-      <th scope="col">Instagram</th>
-      <th scope="col">Facebook</th>
       <th scope="col">Genero</th>
       <th scope="col">
       <%= link_to  new_admins_backoffice_livestream_path, class:"btn btn-success btn-circle btn-sm" do %>
@@ -23,12 +21,10 @@
   <% @livestreams.each do |livestream| %>
     <tr>
       <th scope="row"><%= livestream.id %></th>
+      <td><%= livestream.title%></td>
       <td><%= livestream.description%></td>
       <td><%= livestream.data%></td>
       <td><%= livestream.hora%></td>
-      <td><%= livestream.youtube%></td>
-      <td><%= livestream.instagram%></td>
-      <td><%= livestream.facebook%></td>
       <td><%= livestream.genre.description%></td>
       <td>
       <%= link_to edit_admins_backoffice_livestream_path(livestream), class:"btn btn-warning btn-circle btn-sm" do %>
